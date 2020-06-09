@@ -21,12 +21,18 @@ def test_def():
 
 def test_create():
     print("***常用创建****************************************")
-    arr1 = np.empty((4,2))
-    #arr1 = np.zeros((5,3))
-    #arr1 = np.ones((5,3))
     arr1 = np.arange(5, dtype=float)
+    print('arange create:',arr1)
     arr1 = np.linspace(10, 20, 5, endpoint =  False)
-    print(arr1)
+    print('arange linspace:',arr1)
+
+    print('zeros1:', np.zeors((5)))
+    print('zeros2:', np.zeors((5, 4)))
+    print('ones1:', np.ones((5, 4, 3)))
+    print('empty1:', np.empty((5, 4)))
+    print('full1:', np.full((5, 4), 3))
+    print('eye1:', np.eye(3, 4))
+    print('linspace1:',np.linspace(0, 10, num=4))
 
 def test_slice():
     #切片获取
@@ -39,6 +45,11 @@ def test_slice():
     print (arr1[...,1])   # 第2列元素
     print (arr1[1,...])   # 第2行元素
     print (arr1[...,1:])  # 第2列及剩下的所有元素
+
+    print(arr1[arr1 >3])
+
+    arr2 = np.arange(0,100,10)
+    print(np.where(arr2 <3))
 
 def test_action():
     # 数据操作
@@ -56,27 +67,40 @@ def test_action():
     print(np.transpose(arr1))
     print(arr1.T)
 
-
 def test_math():
     #数组计算
     print("***数组计算****************************************")
-    arrA = np.array([[1., 2., 3.], [4., 5., 6.]])
-    arrB = np.array([[2., 2., 2.], [2., 2., 2.]])
-    print(arrA)
-    print(arrB)
-    print("arrA*2:")
-    print(arrA*2)
-    print("arrA + arrB:")
-    print(arrA + arrB)
-    print("arrA * arrB:")
-    print(arrA*arrB)
+    a = np.arange(25)
+    a = a.reshape((5, 5))
+    b = np.array([10, 62, 1, 14, 2, 56, 79, 2, 1, 45,
+                  4, 92, 5, 55, 63, 43, 35, 6, 53, 24,
+                  56, 3, 56, 44, 78])
+    b = b.reshape((5, 5))
+    print("a",a)
+    print("b",b)
+    print(a + b)
+    print(a - b)
+    print(a * b)
+    print(a / b)
+    print(a ** 2)
+    print(a < b)
+    print(a > b)
+
+    # dot 点积运算
+    print(a.dot(b))
+
+    #sum, min, max, cumsum
+    print(a.sum())
+    print(a.min())
+    print(a.max())
+    print(a.cumsum())
 
 def main():
     # test_def()
     # test_create()
     # test_action()
-    # test_slice()
-    test_math()
+    test_slice()
+    # test_math()
 
 
 
