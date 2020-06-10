@@ -8,7 +8,7 @@ def test_string():
     print(type(strA))
     #string 拼接
     print(strA+strA)
-    print(strA*2)
+    print(strA*3)
     #返回字符子串
     print(strA[:5])
     print("H" in strA)
@@ -37,12 +37,14 @@ def test_string():
 
     #数字判断
     print("***数字字母判断*****************")
-    print(strA.isalpha())
-    print(strA.isalnum())
+    print("Hello".isalpha())
+    print("Hello123".isalnum())
     print("1.23".isalnum())
     print("I am 8 years old".isalnum())
-    print("1.23".isdecimal())
-    print("0123123123".isdigit())
+    print("123".isdecimal())
+    #print(b"123".isdecimal()) # 报错
+    print("123".isdigit())
+    print(b"123".isdigit())
 
     #格式化
     print("***格式化*****************")
@@ -181,12 +183,12 @@ def test_request():
 
 
 def main():
-    # test_string()
+    test_string()
     # test_datetime()
     #test_math()
     #test_statistics()
     #test_csv()
-    test_request()
+    # test_request()
 
 
 
