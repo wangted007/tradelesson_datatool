@@ -3,11 +3,11 @@ import timeit
 
 def test_def():
     #定义和属性
-    arr1 = np.array([1,2,3,4],ndmin = 3)
-    arr1 = np.array([[1,2,3,4],[5,6,7,8]],dtype = np.float)
-    arr1 = np.array([[[1,2,3,4],[5,6,7,8]],[[11,12,13,14],[15,16,17,18]]])
+    #arr1 = np.array([1.0,2,3,4],ndmin = 3)
+    #arr1 = np.array([[1,2,3,4],[5,6,7,8]])
+    arr1 = np.array([[[1,2,3,4],[5,6,7,8],[5,6,7,8]],[[11,12,13,14],[15,16,17,18],[15,16,17,18]]],dtype = np.float)
     print(arr1)
-    print("type :",type(arr1))
+    #print("type :",type(arr1))
     print("shape :", arr1.shape)
     print("dtype :", arr1.dtype)
     print("strides :", arr1.strides)
@@ -96,10 +96,10 @@ def test_math():
     print(a.cumsum())
 
 def main():
-    # test_def()
+    test_def()
     # test_create()
     # test_action()
-    test_slice()
+    # test_slice()
     # test_math()
 
 
