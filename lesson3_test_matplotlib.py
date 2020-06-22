@@ -153,7 +153,7 @@ def drawKlineByMflfinance():
 
 #直接使用matplot绘制K线
 def drawKline():
-    import csv_kline as ck
+    import lesson3_csv_kline as ck
     #获取K线数据
     dates,klines = ck.readKline('000001_daykline.csv')
     #list转ndarray
@@ -192,8 +192,8 @@ def drawKline():
 def main():
     #simpleLineDraw()
     #simpleBarDraw()
-    subChartDraw()
-    #drawKlineByMflfinance
+    #subChartDraw()
+    drawKlineByMflfinance()
     #drawKline()
 
 
