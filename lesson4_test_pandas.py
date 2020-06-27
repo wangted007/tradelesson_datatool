@@ -1,19 +1,20 @@
 import numpy as np
 import pandas as pd
 
-def testSeries():
+
+def test_series():
     print("Series创建**************************************")
     array1 = np.array([1, 3, 5, np.NaN, 10])
     ser1 = pd.Series(array1)
     print(type(ser1))
     print(ser1)
-    print("index:",ser1.index)
-    print("values:",ser1.values)
+    print("index:", ser1.index)
+    print("values:", ser1.values)
 
-    ser2=pd.Series([98,99,90])
-    ser2.index=['语文','数学','语文'] #可重复
+    ser2 = pd.Series([98, 99, 90])
+    ser2.index = ['语文', '数学', '语文']  #可重复
     print(ser2["语文"])
-    ser3=pd.Series(data=[99,98,97],dtype=np.float64,index=['语文','数学','历史'])
+    ser3=pd.Series(data=[99, 98, 97],dtype=np.float64, index=['语文', '数学', '历史'])
     print(ser3)
 
     print("通过字典创建Series***************************")
@@ -23,16 +24,16 @@ def testSeries():
 
     print("Series使用**************************************")
     print(ser1[2])
-    print("语文成绩:",ser2["语文"])
+    print("语文成绩:", ser2["语文"])
     print(ser1[2:4])
 
     print(ser1/4)
-    print(ser1[ser1>2])
+    print(ser1[ser1 > 2])
     print(np.log(ser1))
     print(pd.notnull(ser1))
 
 #基本操作练习
-def basicAction():
+def basic_action():
     dates = pd.date_range('20200101', periods=6)
     df1 = pd.DataFrame(np.random.randn(6, 4), index=dates, columns=list('ABCD'))
     print(df1)
@@ -55,8 +56,8 @@ def basicAction():
     #to_numpy 转换
     print(df1.to_numpy())
     print(df1.describe())
-    print(df1.sort_index(axis=0,ascending = False))
-    print(df1.sort_values(axis="index",by="B",ascending=False))
+    print(df1.sort_index(axis=0, ascending=False))
+    print(df1.sort_values(axis="index", by="B", ascending=False))
 
     print("**选择整行整列**************")
     print(df1["A"])
@@ -64,12 +65,12 @@ def basicAction():
     print(df1["20200102":"20200105"])
 
     print(df1.loc[dates[0]])
-    print(df1.loc[:,['A','C']])
-    print(df1.loc['20200102':'20200105',['A','C']])
+    print(df1.loc[:, ['A', 'C']])
+    print(df1.loc['20200102':'20200105', ['A', 'C']])
     print(df1.iloc[[1, 2, 4], [0, 2]])
 
-    print(df1.at[dates[0],'A'])
-    print(df1.iat[0,1])
+    print(df1.at[dates[0], 'A'])
+    print(df1.iat[0, 1])
 
 
     #增加和删除列
@@ -113,7 +114,7 @@ def basicAction():
 #进行无效值清除
 #输出新的excel文件数据，保留日期，收盘价，成交量，ma5，ma10数据
 #需要安装xlrd,xlwt支持excel读写
-def MADataCalculate():
+def MA_data_calculate():
     # klineInDf = pd.read_excel("lesson4_000001_daykline.xls")
     # klineInDf["MA5"],klineInDf["MA10"] = klineInDf["Close"].rolling(5).mean(),klineInDf["Close"].rolling(5).mean()
     # klineInDf.to_excel('lesson4_000001_daykline_MA.xls')
@@ -134,9 +135,9 @@ def MADataCalculate():
 
 
 def main():
-    #testSeries()
-    #basicAction()
-    MADataCalculate()
+    #test_series()
+    #basic_action()
+    MA_data_calculate()
 
 
 if __name__ == "__main__":
